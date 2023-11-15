@@ -1,8 +1,10 @@
 from chatterbot import ChatBot
 from chatterbot.trainers import ListTrainer
 from chatterbot.trainers import ChatterBotCorpusTrainer
+from chatterbot import languages
 
-chatbot = ChatBot('Demo')
+chatbot = ChatBot('Demo',
+        tagger_language=languages.JPN)
 
 trainer_corpus = ChatterBotCorpusTrainer(chatbot)
 
@@ -37,8 +39,8 @@ trainer = ListTrainer(chatbot)
 # Main interaction loop
 while True:
     request = input("User: ")
-    if request.lower() == "bye":
-        print("Bot: Bye!")
+    if request == "さようなら":
+        print("Bot: さようなら!")
         break
     else:
         response = chatbot.get_response(request)

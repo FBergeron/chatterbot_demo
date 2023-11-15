@@ -57,9 +57,10 @@ Install dependencies:
 
 ```
 pip install spacy
-python -m spacy download en_core_web_sm
-python -m spacy download en_core_web_md
-python -m spacy download en_core_web_lg
+python -m spacy download ja_core_news_sm
+python -m spacy download ja_core_news_md
+python -m spacy download ja_core_news_lg
+python -m spacy download ja_core_news_trf
 pip install pyyaml
 ```
 
@@ -78,4 +79,4 @@ python test.py
 ## Using the chatbot
 
 Once the chatbot is running, you can enter some requests and it will responds accordingly.
-To end the conversation, just type: bye
+To end the conversation, just type: さようなら

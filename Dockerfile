@@ -14,13 +14,13 @@ ENV PATH="$PATH:$PYENV_ROOT/bin"
 RUN pyenv install 3.8
 RUN git clone https://github.com/FBergeron/ChatterBot.git && \
     cd ChatterBot && \
-    git checkout english && \
+    git checkout japanese && \
     cd ..
 RUN pyenv local 3.8.18 && \
     eval "$(pyenv init -)" && \
     pip install --upgrade pip && \
     pip install spacy && \
-    python -m spacy download en_core_web_lg && \
+    python -m spacy download ja_core_news_lg && \
     pip install pyyaml && \
     pip install --ignore-requires-python ./ChatterBot
 
