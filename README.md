@@ -1,11 +1,32 @@
-### README
+# README
 
-## REQUIREMENTS
+## Try via Docker
+
+Build the chatbot image:
+
+```
+docker build -t chatbot .
+```
+
+
+To start the chatbot:
+
+```
+docker run -v $PWD/data:/app/data -it chatbot
+```
+
+You can edit the data files and restart the chatbot again to test.
+
+
+## Local Installation
+
+### Requirements
 
 - pyenv
 - pip
 
-## INSTALL
+
+### Installation
 
 This uses a custom version of ChatterBot so you need to clone it at the top-level of the project directory:
 
@@ -54,3 +75,7 @@ Launch the chatbot:
 python test.py
 ```
 
+## Using the chatbot
+
+Once the chatbot is running, you can enter some requests and it will responds accordingly.
+To end the conversation, just type: bye
