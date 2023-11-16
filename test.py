@@ -4,12 +4,20 @@ from chatterbot.trainers import ChatterBotCorpusTrainer
 from chatterbot import languages
 
 chatbot = ChatBot('Demo',
-        tagger_language=languages.JPN)
+        tagger_language=languages.JPN,
+        logic_adapters=[
+            {
+                'import_path': 'chatterbot.logic.BestMatch',
+                'default_response': 'ごめんなさい。よく分かりません。',
+                'maximum_similarity_threshold': 0.90
+            }
+        ],
+        read_only=True)
 
 trainer_corpus = ChatterBotCorpusTrainer(chatbot)
 
-# Use the built-in chatterbot english corpus files to train it.
-# trainer_corpus.train("chatterbot.corpus.english")
+# Use the built-in english corpus files to train it.
+# trainer_corpus.train("chatterbot.corpus.japanese")
 
 # Use custom corpus files to train it.
 trainer_corpus.train("./data")
