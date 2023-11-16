@@ -2,6 +2,10 @@ from chatterbot import ChatBot
 from chatterbot.trainers import ListTrainer
 from chatterbot.trainers import ChatterBotCorpusTrainer
 from chatterbot import languages
+from chatterbot import response_selection
+import logging
+
+logging.basicConfig(level=logging.INFO)
 
 chatbot = ChatBot('Demo',
         tagger_language=languages.JPN,
@@ -9,7 +13,8 @@ chatbot = ChatBot('Demo',
             {
                 'import_path': 'chatterbot.logic.BestMatch',
                 'default_response': 'ごめんなさい。よく分かりません。',
-                'maximum_similarity_threshold': 0.90
+                'maximum_similarity_threshold': 0.90,
+                'response_selection_method': response_selection.get_random_response,
             }
         ],
         read_only=True)
